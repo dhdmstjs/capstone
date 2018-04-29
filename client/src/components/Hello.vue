@@ -1,7 +1,9 @@
 <template>
   <div class="hello">
+
     <h1>{{this.course}}</h1>
     <h2>{{this.section}}</h2>
+    <h2 >Hello, {{$auth.user.name}}!</h2>
     <br>
     <v-btn color="primary" dark slot="activator" class="mb-2" @click="importClass">Import New Class</v-btn>
     <br>
@@ -21,6 +23,7 @@
 <script>
 import 'vuetify/dist/vuetify.min.css'
 import PostsService from '@/services/PostsService'
+import axios from 'axios'
 
 export default {
   name: 'hello',

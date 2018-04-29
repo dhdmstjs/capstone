@@ -1,11 +1,19 @@
 <template>
   <div id="app">
     <v-app>
+      <nav class="navbar navbar-dark bg-dark">
+        <div>
+          <img :src="$auth.user.picture" width="30" height="30">
+          <span class="text-muted font-weight-light px-2">{{$auth.user.name}}</span>
+          <button type="button" class="btn btn-outline-secondary btn-sm" @click="$auth.logout()">Logout</button>
+        </div>
+      </nav>
     <router-view></router-view>
+
     <v-bottom-nav app :value="true" :active.sync="e1" color="transparent">
         <v-btn flat color="teal" value="roster" @click="route('roster')">
             <span>Roster</span>
-            <v-icon>fas fa-list</v-icon>
+            <v-icon>list</v-icon>
         </v-btn>
         <v-btn flat color="teal" value="home" @click="route('home')">
           <span>Home</span>

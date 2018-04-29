@@ -5,7 +5,9 @@ import App from './App'
 import router from './router'
 import VueSweetalert2 from 'vue-sweetalert2'
 import Vuetify from 'vuetify'
+import auth from '@/auth'
 
+Vue.use(auth)
 Vue.use(VueSweetalert2)
 Vue.use(Vuetify)
 Vue.config.productionTip = false

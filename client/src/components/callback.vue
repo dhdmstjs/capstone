@@ -4,10 +4,10 @@
 
 <script>
 export default {
-  name: 'callback',
+  name: 'Callback',
   mounted() {
     this.$auth.handleAuthentication().then((data) => {
-      this.$router.push({ name: 'home' })
+      this.$router.push({ name: 'Hello' })
     })
   }
 }
