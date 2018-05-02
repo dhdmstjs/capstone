@@ -142,7 +142,7 @@
           }
         }
          this.$router.push({name:'Posts'})
-         window.location.replace('http://188.166.245.15:8080/posts/'+this.subject)
+         window.location.replace('http://localhost:8080/posts/'+this.subject)
       }
     },
   }
