@@ -146,7 +146,7 @@ export default {
       let total = 0
       for (let days in this.date) {
         console.log("this.date", this.date[days]);
-        if (this.date[days].date == 'absent') {
+        if (this.date[days].attend == 'absent') {
           total ++
         }
       }

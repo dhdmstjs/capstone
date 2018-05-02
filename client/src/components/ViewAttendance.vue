@@ -75,7 +75,8 @@ export default {
       attendtype: [
         'present',
         'absent',
-        'late'
+        'late',
+        'excused'
       ],
       dataday:'',
       attendchange: null,

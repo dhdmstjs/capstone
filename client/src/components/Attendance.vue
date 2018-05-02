@@ -1,17 +1,20 @@
 <template>
   <div class = "attendance">
     <h1>Attendance for {{this.date}}</h1><br>
-
+    <h2> Swipe the card! </h2>
+          <br><br>
           <div class="content">
         		<vue-swing @throwout="onThrowout" :config="config" ref="vueswing">
         			<special-card v-for="post in posts" :key="post.key" :imageUrl="post.url" :title="post.name"></special-card>
         		</vue-swing>
         	</div>
-
-    <!-- <v-btn color="green lighten" dark>
-      <v-icon dark left>arrow_back</v-icon>Present
-    </v-btn> -->
-
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <v-btn color="red lighten" dark>
+      <v-icon dark left>arrow_right</v-icon>Absent
+    </v-btn>
+    <v-btn color="green lighten" dark>
+      <v-icon dark left>arrow_left</v-icon>Present
+    </v-btn>
   </div>
 </template>
 
@@ -19,6 +22,8 @@
 import SpecialCard from './Card'
 import PostsService from '@/services/PostsService'
 import VueSwing from 'vue-swing'
+import 'vuetify/dist/vuetify.min.css'
+
 export default {
   name: 'Attendance',
   components: {
