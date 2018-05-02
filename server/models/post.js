@@ -8,7 +8,9 @@ var PostSchema = new Schema({
   program: String,
   grade: String,
   subject: String,
-  nid: String
+  nid: String,
+  prof: String,
+  url: String
 });
 
 var Post = mongoose.model("Post", PostSchema);

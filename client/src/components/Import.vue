@@ -35,9 +35,23 @@
           { name: 'Section', value: 'section', isOptional: true }        ],
         results: null,
         help: 'Necessary columns are: Campus ID (N00000000), NetID, Name',
+        subject: '',
+        previous:[], //previous posts
       };
     },
+    mounted () {
+      this.getPosts()
+    },
     methods: {
+      async getPosts () {
+        const response = await PostsService.fetchPosts()
+        for (let items in response.data.posts) {
+          if (response.data.posts[items].prof == this.$auth.user.name) {
+            this.previous.push(response.data.posts[items])
+          }
+        }
+        console.log('posts', this.previous)
+      },
       onValidate(results) {
         this.results = results;
         this.parseJSON(results)
@@ -71,7 +85,7 @@
               temp.nid = test[y].data[i]
             }
             if (columnName == 'netid') {
-              temp.netid = parseNetID(test[y].data[i])
+              temp.netid = this.parseNetID(test[y].data[i])
             }
             if (columnName == 'name') {
               temp.name = this.parseName(test[y].data[i])
@@ -97,6 +111,7 @@
             if (columnName == 'section') {
               temp.section = test[y].data[i]
             }
+            this.subject = temp.subject + '-' + temp.catalog + '-' +temp.section
           }
           newJson.push(temp)
         }
@@ -105,22 +120,34 @@
       },
       //add students from csv
       async addPost(newJson) {
-          console.log("newson",newJson);
-          for (let i = 0; i <newJson.length; i++) {
+        let flag = false
+        for (let i = 0; i < newJson.length; i++) {
+          for (let j = 0; j < this.previous.length; j++){
+            if (this.previous[j].netid == newJson[i].netid) {
+              flag = true
+            }
+          }
+          if (flag == false) {
             await PostsService.addPost({
+                prof: this.$auth.user.name,
                 nid: newJson[i].nid,
                 netid: newJson[i].netid,
                 name: newJson[i].name,
                 program: newJson[i].program,
                 grade: newJson[i].grade,
-                subject: newJson[i].subject + " " + newJson[i].catalog + "-" + newJson[i].section
+                subject: newJson[i].subject + " " + newJson[i].catalog + "-" + newJson[i].section,
             })
+          } else {
+            flag = false
           }
-          this.$router.push({name:'Posts'})
-          // window.location.replace('http://localhost:8080/posts')
+        }
+        // this.$router.push({name:'Posts'})
+        // window.location.replace('http://localhost:8080/posts/'+this.subject)
       }
     },
   }
 </script>
 
-<!-- <style src="./bootstrap.min.css" charset="utf-8"></style> -->
+<style scoped>
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
+</style>

@@ -45,6 +45,7 @@ export default {
     },
     async addPost () {
       await PostsService.addPost({
+        prof: this.$auth.user.name,
         netid: this.netid,
         name: this.name,
         date: this.parseDate(this.date)

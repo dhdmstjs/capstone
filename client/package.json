@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "axios": "^0.16.2",
+    "cloudinary-core": "^2.5.0",
     "i": "^0.3.6",
     "swing": "^3.1.1",
     "vue": "^2.4.2",

@@ -6,9 +6,10 @@ import NewPost from '@/components/NewPost'
 import EditPost from '@/components/EditPost'
 import Import from '@/components/Import'
 import View from '@/components/ViewAttendance'
-import Login from '@/components/Login'
+import Class from '@/components/Class'
 import Attendance from '@/components/Attendance'
 import Callback from '@/components/Callback.vue'
+import Student from '@/components/Student.vue'
 
 
 Vue.use(Router)
@@ -22,7 +23,7 @@ const router = new Router({
       component: Hello
     },
     {
-      path: '/posts',
+      path: '/posts/:class',
       name: 'Posts',
       component: Posts
     },
@@ -42,17 +43,17 @@ const router = new Router({
       component: Import
     },
     {
-      path: '/view/:date',
+      path: '/view/:class/:date',
       name: 'ViewAttendance',
       component: View
     },
     {
-      path: '/login',
-      name: 'Login',
-      component: View
+      path: '/class/:id',
+      name: 'Class',
+      component: Class
     },
     {
-      path: '/attendance/:date',
+      path: '/attendance/:class/:date',
       name: 'Attendance',
       component: Attendance
     },
@@ -60,6 +61,11 @@ const router = new Router({
       path: '/callback',
       name: 'Callback',
       component: Callback
+    },
+    {
+      path: '/student/:class/:id',
+      name: 'Student',
+      component: Student
     }
   ]
 })
@@ -69,8 +75,11 @@ router.beforeEach((to, from, next) => {
   if(to.name == 'Callback') { // check if "to"-route is "callback" and allow access
     next()
   } else if (router.app.$auth.isAuthenticated()) { // if authenticated allow access
+    Vue.prototype.$login = 'true'
+    console.log("router",Vue.prototype.$login);
     next()
   } else { // trigger auth0 login
+    Vue.prototype.$login = 'false'
     router.app.$auth.login()
   }
 })
