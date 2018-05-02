@@ -40,7 +40,7 @@ export default {
   },
   methods: {
     importClass() {
-      window.location.replace('http://localhost:8080/import')
+      window.location.replace('http://188.166.245.15:8080/import')
     },
     async getPosts () {
       const response = await PostsService.fetchPosts()
@@ -64,7 +64,7 @@ export default {
       let route = split[0]+"-"+split[1]
       Vue.prototype.$course = route
       console.log("$course", this.$course);
-      window.location.replace('http://localhost:8080/class/'+ this.$course)
+      window.location.replace('http://188.166.245.15:8080/class/'+ this.$course)
     }
   }
 }

@@ -94,7 +94,7 @@ export default {
         console.log('hihi'+pair[0]+', '+pair[1]);
       }
       const $this = this
-      axios.post('http://localhost:8081/posts/img', formData)
+      axios.post('http://188.166.245.15:8081/posts/img', formData)
         this.$swal(
           'Your image is updating~',
           `Please wait...`,

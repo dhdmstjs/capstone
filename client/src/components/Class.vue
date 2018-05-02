@@ -60,11 +60,11 @@ export default {
           type: 'warning',
         })
       } else {
-        window.location.replace('http://localhost:8080/view/'+ this.route + '/' + date)
+        window.location.replace('http://188.166.245.15:8080/view/'+ this.route + '/' + date)
       }
     },
     importClass() {
-      window.location.replace('http://localhost:8080/import')
+      window.location.replace('http://188.166.245.15:8080/import')
     },
     async getPosts () {
       const response = await PostsService.fetchPosts()

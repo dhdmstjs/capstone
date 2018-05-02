@@ -13,7 +13,7 @@ let webAuth = new auth0.WebAuth({
   domain: 'nyush-attendance-capstone.auth0.com',
   clientID: 'tlarma0D17lAijg81qXVILvHUUk6i7jC',
   // make sure this line is contains the port: 8080
-  redirectUri: 'http://localhost:8080/callback',
+  redirectUri: 'http://188.166.245.15:8080/callback',
   // we will use the api/v2/ to access the user information as payload
   audience: 'https://' + 'nyush-attendance-capstone.auth0.com' + '/api/v2/',
   responseType: 'token id_token',

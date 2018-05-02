@@ -56,10 +56,10 @@ export default {
   methods: {
     route(type) {
       if (type == "home") {
-        window.location.replace('http://localhost:8080/')
+        window.location.replace('http://188.166.245.15:8080/')
       }
       if (type == "roster") {
-        window.location.replace('http://localhost:8080/posts/'+this.class)
+        window.location.replace('http://188.166.245.15:8080/posts/'+this.class)
       }
       if (type == "attendance") {
         let today = new Date()
@@ -73,7 +73,7 @@ export default {
             mm='0'+mm
         }
         today = yyyy+"-"+mm+"-"+dd
-        window.location.replace('http://localhost:8080/view/'+this.class+'/'+today)
+        window.location.replace('http://188.166.245.15:8080/view/'+this.class+'/'+today)
 
       }
     }

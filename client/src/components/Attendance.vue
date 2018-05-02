@@ -170,7 +170,7 @@ export default {
         console.log("no?");
       }
       if (this.stacksize == this.posts.length) { //stack emtpy = done
-        window.location.replace('http://localhost:8080/view/'+ this.route+'/'+this.date)
+        window.location.replace('http://188.166.245.15:8080/view/'+ this.route+'/'+this.date)
       }
     }
 

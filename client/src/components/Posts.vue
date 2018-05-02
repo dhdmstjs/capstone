@@ -159,7 +159,7 @@ export default {
   },
   methods: {
     studentPage (item) {
-      window.location.replace('http://localhost:8080/student/' +this.route + '/'+ item._id)
+      window.location.replace('http://188.166.245.15:8080/student/' +this.route + '/'+ item._id)
     },
     async upload(event) { // for images
       console.log("event", event);
@@ -180,7 +180,7 @@ export default {
         console.log('hihi'+pair[0]+', '+pair[1]);
       }
       const $this = this
-      axios.post('http://localhost:8081/posts/img', formData)
+      axios.post('http://188.166.245.15:8081/posts/img', formData)
         this.$swal(
           'Your image is updating~',
           `Please wait...`,
@@ -204,7 +204,7 @@ export default {
           mm='0'+mm
       }
       today = yyyy+"-"+mm+"-"+dd
-      window.location.replace('http://localhost:8080/attendance/' + today)
+      window.location.replace('http://188.166.245.15:8080/attendance/' + today)
     },
     getDate(text) {
       let dates = []
