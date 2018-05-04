@@ -141,14 +141,19 @@ export default {
       let split = this.date.split('-')
       let day = split[0].substring(2,4)+split[1]+split[2]
       this.dataday= day
+      console.log("this.dat", day);
       let flag= false
       if (this.checkbox == true) { //mark all present
         let dateupdate = {date: day, attend: "present"}
+        console.log(dateupdate);
         for (let student in this.posts) {
           for (let days in this.posts[student].date) {
-            if (day.indexOf(this.posts[student].date[days].date)>-1) //if date there
+            if (day.indexOf(this.posts[student].date[days].date)>-1 && this.posts[student].date[days].date == day) {
               flag = true
+              let index = day.indexOf(this.posts[student].date[days].date) //if date there
               this.posts[student].date[days].attend = 'present'//only update
+            } 
+
           }
           if (flag == false) {
             this.posts[student].date.push(dateupdate)
