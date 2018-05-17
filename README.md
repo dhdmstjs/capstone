@@ -15,3 +15,5 @@ npm start
 in server
 npm start dev
 
+localhost:8080
+
