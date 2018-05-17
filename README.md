@@ -17,3 +17,7 @@ npm start dev
 
 localhost:8080
 
+if server fails to start, it might be because mongodb is not running? setup?
+if so -> open a new tab in terminal (cd-ed into server folder) and then type mongod
+retry starting server
+
